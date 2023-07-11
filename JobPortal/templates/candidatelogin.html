@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+<head>
+    <style>
+        .maindiv{
+            border:1px solid black;
+        }
+    </style>
+</head>
+
+<div class="jumbotron container ">
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p><input type="text" name="username" placeholder="Username..."></p>
+        <p><input type="password" name="password" placeholder="Password..." ></p>
+        <input class="btn btn-success" type="submit" value="Login"><br/><br/>
+        <p><b>Do not have an account?</b>
+            {% if role == "hr" %}
+            <p><i><b>Please contact your company owner/admin</b></i></p>
+            {% else %}
+            <a href='{% url "register" role %}' style="color: blue;">Register</a>
+            {% endif %}
+        </p>
+    </form>
+{% endblock %} 

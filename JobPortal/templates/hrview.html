@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class=" jumbotron container">
+    <div id="side_bar" class="clearfix">
+        <h1 style="float: left;"><a>HR</a></h1> 
+    <div><a href="{% url 'addjob' %}"><button class="btn btn-info btn-sm"  style="float: right; position: relative; top: 10px; right: 10px;">Add Job</button></a></div>
+    
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>Experience</th>
+                <th>Location</th>
+                <th></th>
+                <th></th>
+                <!-- <th>Join</th> -->
+            </tr>
+            {% for c in companies %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.position}}</td>
+                    <td>{{c.description}}</td>
+                    <td>{{c.salary}}</td>
+                    <td>{{c.experience}}</td>
+                    <td>{{c.Location}}</td>
+                    <td>
+                        <a href="{% url 'edit_hr_job' c.id %}"><button class="btn btn-info">Edit</button></a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_hr_job' c.id%}"><button class="btn btn-info">Delete</button></a>
+                     </td>
+                    <!-- <td><a href="{% url 'apply' c.id %}" class="btn btn-info btn-sm" type="submit">Apply</a></td> -->
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

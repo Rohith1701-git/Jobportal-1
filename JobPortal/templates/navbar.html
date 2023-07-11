@@ -1,0 +1,38 @@
+<head>
+  <style>
+    .user {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+{% if request.user.is_authenticated %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary-subtle">
+
+  <a class="navbar-brand"> Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+  </div>
+  {% if request.user.is_authenticated %}
+  <div>
+    <span>
+      <a class="user" href="{% url 'appliedjobs' %}">Candidate applied</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="user" href="{% url 'candidateview' %}">view jobs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      &nbsp;</span>
+  </div>
+  <span class="user">Hello,{{request.user}} &nbsp;&nbsp;&nbsp; </span>
+  <span><a class="user btn btn-info" href="{% url 'logout' %}"> Logout</a></span>
+  {% endif %}
+</nav>
+{% endif %}

@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+
+<head>
+    <style>
+        .maindiv {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+</body>
+<div  class="maindiv jumbotron container ">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Admin login</h5>
+                <!-- <p><input type="text" name="username" placeholder="Username..."></p>
+            <p><input type="password" name="password" placeholder="Password..." ><br/><br/> -->
+                
+                <a href="{% url 'login' role='admin' %}" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="maindiv jumbotron container ">
+
+    <form>
+        
+        <div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">HR login</h5>
+                            <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                            <!-- <p><input type="text" name="username" placeholder="Username..."></p>-->
+                            <a href="{% url 'login' role='hr' %}" class="btn btn-primary">Login</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Candidate login</h5>
+                            <!-- <p><input type="text" name="username" placeholder="Username..."></p>
+                        <p><input type="password" name="password" placeholder="Password..." ><br/><br/> -->
+                            <a href="{% url 'login' role='candidate' %}" class="btn btn-primary">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
